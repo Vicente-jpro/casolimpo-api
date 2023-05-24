@@ -7,7 +7,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
-import com.challenge.memoryapi.dto.ColaboradorDto;
+import com.casolimpo.api.dto.ColaboradorDto;
 
 @Component
 public class PaginacaoColaborador {

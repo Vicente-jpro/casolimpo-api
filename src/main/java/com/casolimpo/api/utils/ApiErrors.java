@@ -1,4 +1,4 @@
-package com.challenge.memoryapi.utils;
+package com.casolimpo.api.utils;
 
 import java.util.Arrays;
 import java.util.List;
