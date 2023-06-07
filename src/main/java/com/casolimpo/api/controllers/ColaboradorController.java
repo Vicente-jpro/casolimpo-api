@@ -1,4 +1,4 @@
-package com.challenge.memoryapi.controllers;
+package com.casolimpo.api.controllers;
 
 import java.util.List;
 
@@ -18,12 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.challenge.memoryapi.converters.ColaboradorConverter;
-import com.challenge.memoryapi.dto.ColaboradorDto;
-import com.challenge.memoryapi.models.Colaborador;
-import com.challenge.memoryapi.services.ColaboradorService;
-import com.challenge.memoryapi.utils.PaginacaoColaborador;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

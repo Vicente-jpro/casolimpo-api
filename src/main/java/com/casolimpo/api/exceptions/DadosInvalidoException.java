@@ -1,4 +1,4 @@
-package com.challenge.memoryapi.exceptions;
+package com.casolimpo.api.exceptions;
 
 public class DadosInvalidoException extends RuntimeException {
     private static final long serialVersionUID = 1L;
