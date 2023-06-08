@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,10 +22,10 @@ public class Provincia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "nome_provincia")
+    @Column(name = "nome_provincia", length = 15)
     private String nome;
 
-    @OneToMany(mappedBy = "provincia")
+    @OneToMany(mappedBy = "provincia", fetch = FetchType.LAZY)
     private List<Municipio> municipios;
 
 }

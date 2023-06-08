@@ -5,26 +5,25 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Data
 @Entity
-@Table(name = "contactos")
-public class Contacto {
+@Table(name = "endereco")
+public class Endereco {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "telefone1", length = 15)
-    private String telefone1;
+    @Column(name = "morada", length = 40)
+    private String morada;
 
-    @Column(name = "telefone2", length = 15)
-    private String telefone2;
-
-    @Column(name = "email", length = 30)
-    private String email;
-
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "municipio_id")
+    private Municipio municipio;
 }
