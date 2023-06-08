@@ -27,8 +27,8 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @RestController
-@RequestMapping("/colaboradores")
-@Api("API de colaboradores")
+@RequestMapping("/enderecos")
+@Api("API de enderecos.")
 public class ColaboradorController {
 
         @Autowired

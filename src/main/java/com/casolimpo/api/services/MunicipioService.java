@@ -28,7 +28,7 @@ public class MunicipioService {
         return this.municipioRepository
                 .findById(idMunicipio)
                 .orElseThrow(() -> new MunicipioException("Municipio não encontrada. "
-                        + "ID invalido id:" + idMunicipio));
+                        + "ID invalido id: " + idMunicipio));
     }
 
     public List<Municipio> findbyProvincia(Integer idProvincia) {
