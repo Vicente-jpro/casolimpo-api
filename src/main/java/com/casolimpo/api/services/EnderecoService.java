@@ -36,4 +36,8 @@ public class EnderecoService {
                         + "id invalido id: " + idEndereco));
     }
 
+    public void eliminar(Integer idEndereco) {
+        this.enderecoRepository.deleteById(idEndereco);
+    }
+
 }
