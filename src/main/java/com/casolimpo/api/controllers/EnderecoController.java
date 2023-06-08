@@ -19,6 +19,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.casolimpo.api.converters.EnderecoConverter;
+import com.casolimpo.api.dto.EnderecoDto;
+import com.casolimpo.api.models.Endereco;
+import com.casolimpo.api.services.EnderecoService;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -29,27 +34,26 @@ import lombok.extern.log4j.Log4j2;
 @RestController
 @RequestMapping("/enderecos")
 @Api("API de enderecos.")
-public class ColaboradorController {
+public class EnderecoController {
 
         @Autowired
-        private ColaboradorService colaboradorService;
+        private EnderecoService enderecoService;
 
         @Autowired
-        private ColaboradorConverter colaboradorConverter;
-
-        @Autowired
-        private PaginacaoColaborador paginacaoColaborador;
+        private EnderecoConverter enderecoConverter;
 
         @PostMapping
-        @ApiOperation("Salvar colaboradores com os seus projectos")
+        @ApiOperation("Salvar endereco.")
         @ApiResponses({
-                        @ApiResponse(code = 201, message = "Colaborador salvo com sucesso."),
-                        @ApiResponse(code = 404, message = "Erro ao salvar Colaborador")
+                        @ApiResponse(code = 201, message = "Endereco salvo com sucesso."),
+                        @ApiResponse(code = 404, message = "Erro ao salvar Endereco")
         })
         @ResponseStatus(HttpStatus.CREATED)
-        public List<ColaboradorDto> salvar(@RequestBody ColaboradorDto colaboradorDto) {
-                log.info("ColaboradorController - Salvar colaborador com seu projecto.");
-                return this.colaboradorService.salvar(colaboradorDto);
+        public EnderecoDto salvar(@RequestBody EnderecoDto enderecoDto) {
+                log.info("EnderecoController - Salvar endereco.");
+                Endereco endereco = this.enderecoService.salvar(enderecoDto);
+                EnderecoDto dto = this.enderecoConverter.paraEnderecoDto(endereco);
+                return dto;
         }
 
         @GetMapping
