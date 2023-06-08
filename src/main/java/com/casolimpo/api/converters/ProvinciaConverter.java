@@ -23,4 +23,12 @@ public class ProvinciaConverter {
                 .nome(provinciaDto.getNome())
                 .build();
     }
+
+    public ProvinciaDto paraProvincia(Provincia provincia) {
+        return ProvinciaDto
+                .builder()
+                .id(provincia.getId())
+                .nome(provincia.getNome())
+                .build();
+    }
 }

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.casolimpo.api.dto.EnderecoDto;
+import com.casolimpo.api.dto.MunicipioDto;
 import com.casolimpo.api.models.Endereco;
 
 @Component
@@ -25,6 +26,7 @@ public class EnderecoConverter {
                 .builder()
                 .id(endereco.getId())
                 .morada(endereco.getMorada())
+                .municipioDto(this.municipioConverter.paraMunicipio(endereco.getMunicipio()))
                 .build();
     }
 }

@@ -21,9 +21,12 @@ public class MunicipioConverter {
         return municipio;
     }
 
-    public MunicipioDto paraMunicipiu(Municipio municipio) {
+    public MunicipioDto paraMunicipio(Municipio municipio) {
         return MunicipioDto
                 .builder()
+                .id(municipio.getId())
+                .nome(municipio.getNome())
+                .provincia(this.provinciaConverter.paraProvincia(municipio.getProvincia()))
                 .build();
     }
 

@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.casolimpo.api.exceptions.ContactoException;
 import com.casolimpo.api.exceptions.DadosInvalidoException;
+import com.casolimpo.api.exceptions.EnderecoException;
+import com.casolimpo.api.exceptions.MunicipioException;
+import com.casolimpo.api.exceptions.ProvinciaException;
 import com.casolimpo.api.utils.ApiErrors;
 
 @RestControllerAdvice
@@ -21,7 +25,39 @@ public class ApplicationControllerAdvice {
 	@ResponseBody
 	@ExceptionHandler(DadosInvalidoException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	public ApiErrors dadosInvalidoExceptionHandle2(DadosInvalidoException ex) {
+	public ApiErrors dadosInvalidoExceptionHandle(DadosInvalidoException ex) {
+		this.mensagemErro = ex.getMessage();
+		return new ApiErrors(mensagemErro);
+	}
+
+	@ResponseBody
+	@ExceptionHandler(EnderecoException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	public ApiErrors enderecoExceptionHandle2(EnderecoException ex) {
+		this.mensagemErro = ex.getMessage();
+		return new ApiErrors(mensagemErro);
+	}
+
+	@ResponseBody
+	@ExceptionHandler(ContactoException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	public ApiErrors contactoExceptionHandle2(ContactoException ex) {
+		this.mensagemErro = ex.getMessage();
+		return new ApiErrors(mensagemErro);
+	}
+
+	@ResponseBody
+	@ExceptionHandler(MunicipioException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	public ApiErrors municipioExceptionHandle(MunicipioException ex) {
+		this.mensagemErro = ex.getMessage();
+		return new ApiErrors(mensagemErro);
+	}
+
+	@ResponseBody
+	@ExceptionHandler(ProvinciaException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	public ApiErrors provinciaExceptionHandle(ProvinciaException ex) {
 		this.mensagemErro = ex.getMessage();
 		return new ApiErrors(mensagemErro);
 	}
