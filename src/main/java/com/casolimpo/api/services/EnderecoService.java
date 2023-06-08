@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.casolimpo.api.dto.EnderecoDto;
+import com.casolimpo.api.exceptions.EnderecoException;
 import com.casolimpo.api.models.Endereco;
 import com.casolimpo.api.models.Municipio;
 import com.casolimpo.api.models.Provincia;
@@ -27,4 +28,12 @@ public class EnderecoService {
 
         return this.enderecoRepository.save(endereco);
     }
+
+    public Endereco findById(Integer idEndereco) {
+        return this.enderecoRepository
+                .findById(idEndereco)
+                .orElseThrow(() -> new EnderecoException("Endereco não encontrado. "
+                        + "id invalido id: " + idEndereco));
+    }
+
 }
