@@ -11,5 +11,5 @@ import com.casolimpo.api.models.Provincia;
 @Repository
 public interface MunicipioRepository extends JpaRepository<Municipio, Integer> {
 
-    List<Municipio> findbyProvincia(Provincia provincia);
+    List<Municipio> findByProvincia(Provincia provincia);
 }
