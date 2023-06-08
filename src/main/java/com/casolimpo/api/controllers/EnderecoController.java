@@ -73,3 +73,25 @@ public class EnderecoController {
 	}
 
 }
+
+// Luanda
+// Cabinda
+// Huambo
+// Uíge
+// Benguela
+// Namibe
+// Benguela
+// Lunda
+// Huíla
+// Cuanza
+// Lunda Norte
+// Huíla
+// Bié
+// Cuanza Sul
+// Malanje
+// Bengo
+// Namibe
+// Huambo
+// Zaire
+// Congo
+// Zaire
