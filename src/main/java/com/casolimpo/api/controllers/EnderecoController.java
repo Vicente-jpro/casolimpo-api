@@ -56,34 +56,14 @@ public class EnderecoController {
                 return dto;
         }
 
-        @GetMapping
-        @ApiOperation("Listar todos os colaboradores.")
+        @GetMapping("/{id_endereco}")
+        @ApiOperation("Buscar endereco com os seus projectos.")
         @ApiResponses({
-                        @ApiResponse(code = 302, message = "Colaboradoes encontrados"),
-                        @ApiResponse(code = 204, message = "Colaboradores não encontrados.")
-        })
-        @ResponseStatus(HttpStatus.OK)
-        public Page<ColaboradorDto> listarTodos(
-                        @PageableDefault(page = 0, size = 4, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
-
-                List<Colaborador> listaColaboradores = this.colaboradorService.listaColaborador();
-                List<ColaboradorDto> listaColaboradoresDto = this.colaboradorConverter
-                                .paraColaboradorDto(listaColaboradores);
-
-                Page<ColaboradorDto> listaPaginada = this.paginacaoColaborador
-                                .getPaginacao(listaColaboradoresDto, pageable);
-
-                return listaPaginada;
-        }
-
-        @GetMapping("/{id_projecto}")
-        @ApiOperation("Buscar colaboradores com os seus projectos.")
-        @ApiResponses({
-                        @ApiResponse(code = 302, message = "Colaboradoes encontrados"),
-                        @ApiResponse(code = 204, message = "Colaboradores não encontrados.")
+                        @ApiResponse(code = 302, message = "Endereco encontrados"),
+                        @ApiResponse(code = 204, message = "Endereco não encontrados.")
         })
         @ResponseStatus(HttpStatus.FOUND)
-        public List<ColaboradorDto> getColaboradoresByProjectoIdProjecto(
+        public List<Endereco> getColaboradoresByProjectoIdProjecto(
                         @PathVariable("id_projecto") Integer idProjecto) {
                 log.info("ColaboradorController - Buscar colaboradores com seu projecto. id_projecto: " + idProjecto);
                 return this.colaboradorService.getColaboradoresByProjectoIdProjecto(idProjecto);
